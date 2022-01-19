@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 from django.conf import settings
+from django.utils import timezone
 
 # Create your models here.
 
@@ -57,7 +58,7 @@ class ProfileFeedItem(models.Model):
         on_delete=models.CASCADE
     )
     status_text = models.CharField(max_length=255)
-    created_on = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.status_text

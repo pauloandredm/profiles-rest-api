@@ -20,7 +20,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 class UserProfileFeedViewSet(viewsets.ModelViewSet):
     
     serializer_class = serializers.ProfileFeedItemSerializer
-    queryset = models.ProfileFeedItem.objects.all()
+    queryset = models.ProfileFeedItem.objects.order_by('-created_on')[0:10]
     permission_classes = (permissions.UpdateOwnStatus, IsAuthenticated)
 
     def perform_create(self, serializer):
