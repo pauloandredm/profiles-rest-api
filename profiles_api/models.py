@@ -42,14 +42,9 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
 
-    # def get_full_name(self):
-    #     return self.name
-
-    # def get_short_name(self):
-    #     return self.name
-
     def __str__(self):
         return self.email
+
 
 class ProfileFeedItem(models.Model):
 
